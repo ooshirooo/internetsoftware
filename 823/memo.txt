@@ -1,0 +1,50 @@
+8/23
+fh&142739
+Fhxh4869
+
+netstat -l　空いてるポート確認できる
+netstat -ln　表示がサービス名ではなく、ポート番号で表示される
+
+"pop3(tcp:110)","imap(tcp:143)","domain(tcp&udp:53)","ssh(tcp:22)","rndc(tcp&udp:953)","smtp(tcp:25)","imaps(tcp:993)","pop3s(tcp995)"
+
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 0.0.0.0:pop3            0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:imap            0.0.0.0:*               LISTEN     
+tcp        0      0 localhost:domain        0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN     
+tcp        0      0 localhost:smtp          0.0.0.0:*               LISTEN     
+tcp        0      0 localhost:rndc          0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:imaps           0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:pop3s           0.0.0.0:*               LISTEN     
+tcp6       0      0 [::]:pop3               [::]:*                  LISTEN     
+tcp6       0      0 [::]:imap               [::]:*                  LISTEN     
+tcp6       0      0 [::]:http               [::]:*                  LISTEN     
+tcp6       0      0 localhost:domain        [::]:*                  LISTEN     
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
+tcp6       0      0 localhost:smtp          [::]:*                  LISTEN     
+tcp6       0      0 localhost:rndc          [::]:*                  LISTEN     
+tcp6       0      0 [::]:imaps              [::]:*                  LISTEN     
+tcp6       0      0 [::]:pop3s              [::]:*                  LISTEN     
+udp        0      0 localhost:domain        0.0.0.0:*                          
+udp        0      0 0.0.0.0:bootpc          0.0.0.0:*                          
+udp        0      0 0.0.0.0:msfw-array      0.0.0.0:*                          
+udp        0      0 localhost:323           0.0.0.0:*                          
+udp6       0      0 localhost:domain        [::]:*                             
+udp6       0      0 localhost:323           [::]:*                             
+udp6       0      0 [::]:55123              [::]:*                             
+raw6       0      0 [::]:ipv6-icmp          [::]:*                  7          
+
+
+AddressFamily anyはIPv4, IPv6どちらで接続するか決められる
+
+configなどで設定変更した後は、ログインできるかどうかの確認を行う際は別タブを開いて行う方が良い
+
+myhostname = is~
+mydomain = st~
+myorigin = $myhostname
+interface = all 
+inetpro = all
+mydestination = $myhostname
+mynetworks = 10.0.6.0/24, 10.0.0.0/20
+relay_domain = ie~
